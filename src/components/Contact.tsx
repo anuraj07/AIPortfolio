@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { RevealText } from './RevealText';
 
@@ -11,19 +10,19 @@ export const Contact = () => {
                         <h2 className="text-h2">Location</h2>
                     </RevealText>
                     <RevealText delay={0.1}>
-                        <p className="text-body">New York, NY<br />United States</p>
+                        <p className="text-body">New York City<br />United States</p>
                     </RevealText>
                 </div>
                 <div>
                     <RevealText delay={0.2}>
                         <h2 className="text-h2">Contact details</h2>
                     </RevealText>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                         <RevealText delay={0.3}>
-                            <a href="mailto:hello@example.com" style={{ textDecoration: 'underline', textUnderlineOffset: '4px', color: 'var(--text-main)' }}>hello@civio.design</a>
+                            <a href="mailto:hello@jordanreese.com" style={{ textDecoration: 'underline', textUnderlineOffset: '4px', color: 'var(--text-main)', fontSize: '1.1rem' }}>hello@jordanreese.com</a>
                         </RevealText>
                         <RevealText delay={0.4}>
-                            <a href="tel:+1234567890" style={{ color: 'var(--text-secondary)' }}>+1 (555) 123-4567</a>
+                            <a href="tel:453-485-6481" style={{ color: 'var(--text-secondary)' }}>453-485-6481</a>
                         </RevealText>
                     </div>
                 </div>
@@ -45,8 +44,8 @@ export const Contact = () => {
             <footer
                 style={{
                     display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
+                    flexDirection: 'column',
+                    gap: '1rem',
                     borderTop: '1px solid var(--border-color)',
                     paddingTop: '3rem',
                     paddingBottom: '3rem',
@@ -54,16 +53,23 @@ export const Contact = () => {
                     color: 'var(--text-secondary)'
                 }}
             >
-                <RevealText>
-                    <div>© 2025 studio kismo</div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+                    <RevealText>
+                        <div>© 2025 studio kismo</div>
+                    </RevealText>
+                    <div style={{ display: 'flex', gap: '2rem' }}>
+                        {['Instagram', 'LinkedIn'].map((social, i) => (
+                            <RevealText key={social} delay={0.1 * i} style={{ display: 'inline-block' }}>
+                                <a href="#" style={{ transition: 'color 0.2s', color: 'var(--text-secondary)' }}>{social}</a>
+                            </RevealText>
+                        ))}
+                    </div>
+                 </div>
+                 <RevealText delay={0.2}>
+                    <div style={{ fontSize: '0.8rem', opacity: 0.6 }}>
+                        <a href="#">get this template</a>
+                    </div>
                 </RevealText>
-                <div style={{ display: 'flex', gap: '2rem' }}>
-                    {['Instagram', 'LinkedIn', 'Twitter'].map((social, i) => (
-                        <RevealText key={social} delay={0.1 * i} style={{ display: 'inline-block' }}>
-                            <a href="#" style={{ transition: 'color 0.2s', color: 'var(--text-secondary)' }}>{social}</a>
-                        </RevealText>
-                    ))}
-                </div>
             </footer>
         </section>
     );
