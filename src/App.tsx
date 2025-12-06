@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { Hero } from './components/Hero'
 import { Experience } from './components/Experience'
-import { Projects } from './components/Projects'
+// import { Projects } from './components/Projects'
 import { Education } from './components/Education'
-import { Skills } from './components/Skills'
-import { Awards } from './components/Awards'
+// import { Skills } from './components/Skills'
+// import { Awards } from './components/Awards'
 import { Contact } from './components/Contact'
 import Lenis from 'lenis'
 
