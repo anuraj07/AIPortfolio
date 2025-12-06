@@ -10,7 +10,7 @@ export const Contact = () => {
                         <h2 className="text-h2">Location</h2>
                     </RevealText>
                     <RevealText delay={0.1}>
-                        <p className="text-body">New York City<br />United States</p>
+                        <p className="text-body">Bengaluru, Karnataka<br />India</p>
                     </RevealText>
                 </div>
                 <div>
@@ -19,10 +19,10 @@ export const Contact = () => {
                     </RevealText>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                         <RevealText delay={0.3}>
-                            <a href="mailto:hello@jordanreese.com" style={{ textDecoration: 'underline', textUnderlineOffset: '4px', color: 'var(--text-main)', fontSize: '1.1rem' }}>hello@jordanreese.com</a>
+                            <a href="mailto:deep.anuraj10@gmail.com" style={{ textDecoration: 'underline', textUnderlineOffset: '4px', color: 'var(--text-main)', fontSize: '1.1rem' }}>deep.anuraj10@gmail.com</a>
                         </RevealText>
                         <RevealText delay={0.4}>
-                            <a href="tel:453-485-6481" style={{ color: 'var(--text-secondary)' }}>453-485-6481</a>
+                            <a href="tel:+91-7903811835" style={{ color: 'var(--text-secondary)' }}>+91-7903811835</a>
                         </RevealText>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ export const Contact = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    <a href="#" className="btn-primary" style={{ fontSize: '1.2rem', padding: '24px 48px', borderRadius: '12px' }}>
+                    <a href="https://drive.google.com/file/d/1RtaKiWLIbBxZxiSVw56YSV8s3pyi0Htk/view?usp=drive_link" className="btn-primary" style={{ fontSize: '1.2rem', padding: '24px 48px', borderRadius: '12px' }}>
                         Download PDF Resume
                     </a>
                 </motion.div>
@@ -55,21 +55,27 @@ export const Contact = () => {
             >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
                     <RevealText>
-                        <div>© 2025 studio kismo</div>
+                        <div>© 2026</div>
                     </RevealText>
                     <div style={{ display: 'flex', gap: '2rem' }}>
-                        {['Instagram', 'LinkedIn'].map((social, i) => (
-                            <RevealText key={social} delay={0.1 * i} style={{ display: 'inline-block' }}>
-                                <a href="#" style={{ transition: 'color 0.2s', color: 'var(--text-secondary)' }}>{social}</a>
+                        {[
+                            { name: 'Github', url: 'https://github.com/anuraj07' },
+                            { name: 'LinkedIn', url: 'https://www.linkedin.com/in/anuraj-deep-2407/' },
+                            { name: 'Instagram', url: 'https://www.instagram.com/anu_raj07' }
+                        ].map((social, i) => (
+                            <RevealText key={social.name} delay={0.1 * i} style={{ display: 'inline-block' }}>
+                                <a
+                                    href={social.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{ transition: 'color 0.2s', color: 'var(--text-secondary)' }}
+                                >
+                                    {social.name}
+                                </a>
                             </RevealText>
                         ))}
                     </div>
-                 </div>
-                 <RevealText delay={0.2}>
-                    <div style={{ fontSize: '0.8rem', opacity: 0.6 }}>
-                        <a href="#">get this template</a>
-                    </div>
-                </RevealText>
+                </div>
             </footer>
         </section>
     );

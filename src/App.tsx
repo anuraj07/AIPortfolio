@@ -35,10 +35,10 @@ function App() {
         <div className="container">
             <Hero />
             <Experience />
-            <Projects />
+            {/* <Projects /> */}
             <Education />
-            <Skills />
-            <Awards />
+            {/* <Skills /> */}
+            {/* <Awards /> */}
             <Contact />
         </div>
     )

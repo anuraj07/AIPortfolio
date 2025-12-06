@@ -4,20 +4,15 @@ import { RevealText } from './RevealText';
 export const Education = () => {
     const education = [
         {
-            degree: "Bachelor of Fine Arts in Graphic Design",
-            school: "Rhode Island School of Design (RISD)",
-            year: "Graduated: May 2015"
-        },
-        {
-            degree: "Certificate in UI/UX Design",
-            school: "General Assembly, New York",
-            year: "Completed: Dec 2017"
+            degree: "Bachelor of Engineering in Computer Science",
+            school: "Global Academy of Technology",
+            year: "Graduated: 2021"
         }
     ];
 
     return (
         <section>
-             <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '2rem' }}>
                 <RevealText>
                     <h2 className="text-h2">Education</h2>
                 </RevealText>
