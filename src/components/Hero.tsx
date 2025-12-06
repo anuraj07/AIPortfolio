@@ -1,5 +1,7 @@
+// import React from 'react';
 import { motion } from 'framer-motion';
 import { RevealText } from './RevealText';
+import portfolioHighlight from '../assets/portfolio_highlight.jpg';
 
 const imageReveal = {
     hidden: { scale: 0.95, opacity: 0 },
@@ -12,30 +14,31 @@ export const Hero = () => {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4rem' }}>
                 <RevealText>
                     <div style={{ fontWeight: 600, fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                        <div style={{ width: '28px', height: '28px', background: '#ccc', borderRadius: '50%' }}></div>
-                        <span>Civio</span>
+                        <div style={{ width: '32px', height: '32px', background: '#ccc', borderRadius: '50%', overflow: 'hidden' }}>
+                            <img src="https://placehold.co/100x100/333/fff?text=AD" alt="Anuraj Deep" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        </div>
+                        <span>Anuraj Deep</span>
                     </div>
                 </RevealText>
-                <RevealText delay={0.1}>
-                    <a href="#" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', transition: 'color 0.2s' }}>variant 2</a>
-                </RevealText>
             </div>
 
-            <div style={{ marginBottom: '2rem' }}>
+            <div style={{ marginBottom: '3rem' }}>
                 <RevealText delay={0.2}>
-                    <h1 className="text-h1" style={{ margin: 0 }}>Senior Art Director</h1>
+                    <h1 className="text-h1" style={{ margin: 0 }}>Software Engineer - 2,</h1>
                 </RevealText>
                 <RevealText delay={0.3}>
-                    <h1 className="text-h1" style={{ margin: 0 }}>and Graphic Designer</h1>
+                    <h1 className="text-h1" style={{ margin: 0 }}>Android Developer</h1>
                 </RevealText>
             </div>
 
-            <RevealText delay={0.4} style={{ marginBottom: '4rem' }}>
-                <p className="text-body" style={{ maxWidth: '480px', lineHeight: 1.7 }}>
-                    Specializing in branding and digital design. Based in New York.
-                    Currently available for freelance projects.
-                </p>
-            </RevealText>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
+                <RevealText delay={0.4}>
+                    <h2 className="text-h2" style={{ marginBottom: '1rem' }}>About</h2>
+                    <p className="text-body" style={{ maxWidth: '480px' }}>
+                        Hello! I'm an Android developer who enjoys creating high-quality applications. I contribute considerable knowledge in Kotlin, Android SDK, and prominent architectural patterns such as MVP, MVVM, and MVI to any project I work on. My knowledge includes coroutines, dependency injection, and Jetpack libraries like Navigation and Compose, which allow me to create highly efficient and engaging user experiences. I also have a strong understanding of SQL and Room, allowing me to manage data easily. I take satisfaction in producing high-quality solutions by developing clean, maintainable code. I'm committed to exceeding expectations and providing a seamless user experience, whether developing a new app or improving an existing one. Let's work together to make your app ideas a reality.
+                    </p>
+                </RevealText>
+            </div>
 
             <motion.div
                 initial="hidden"
@@ -45,14 +48,15 @@ export const Hero = () => {
                 style={{
                     width: '100%',
                     height: '600px',
-                    backgroundColor: '#ebebeb',
+                    backgroundColor: '#dce0dd',
                     borderRadius: '12px',
                     overflow: 'hidden',
                 }}
             >
                 <motion.img
                     whileHover={{ scale: 1.05 }}
-                    src="https://placehold.co/1200x800/dcdcdc/999999?text=Portfolio+Key+Visual"
+                    transition={{ duration: 0.6 }}
+                    src={portfolioHighlight}
                     alt="Portfolio Highlight"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
