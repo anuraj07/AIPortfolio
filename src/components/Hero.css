@@ -1,0 +1,84 @@
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 4rem;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 3rem;
+    background: var(--card-bg);
+    border-radius: 16px;
+}
+
+.hero-image-container {
+    width: 100%;
+    height: 500px;
+    background-color: var(--border-color);
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+}
+
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        /* Stack vertically */
+        gap: 3rem;
+        margin-bottom: 4rem;
+        text-align: left;
+        /* Keep left alignment or center if preferred, keeping left for now */
+    }
+
+    .hero-image-container {
+        height: 400px;
+        /* Smaller image on mobile */
+        order: -1;
+        /* Option: move image to top? Or keep bottom. Let's keep bottom for now as text is intro. */
+    }
+
+    /* Actually, often image first is better on mobile for personal portfolios, but text first is good for context. 
+       Let's keep text first based on the 'Hire Me' priority. */
+}
+
+@media (max-width: 768px) {
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2x2 grid on mobile */
+        gap: 1.5rem;
+        padding: 2rem;
+    }
+
+    .text-h1 {
+        font-size: 2.5rem !important;
+        /* Resize title */
+    }
+
+    .hero-image-container {
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-stats {
+        grid-template-columns: 1fr;
+        /* Stack stats on very small screens */
+        gap: 1rem;
+    }
+
+    .text-h1 {
+        font-size: 2rem !important;
+    }
+}

@@ -1,81 +1,103 @@
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { RevealText } from './RevealText';
+import { Github, Linkedin, Mail, Twitter, Youtube, Instagram, BookText, Phone } from 'lucide-react';
 
 export const Contact = () => {
+    const socialLinks = [
+        // { name: 'X', icon: <Twitter size={20} />, url: 'https://twitter.com/yourhandle' }, // Placeholder URL
+        { name: 'Github', icon: <Github size={20} />, url: 'https://github.com/anuraj07' },
+        { name: 'Email', icon: <Mail size={20} />, url: 'mailto:deep.anuraj10@gmail.com' },
+        { name: 'LinkedIn', icon: <Linkedin size={20} />, url: 'https://www.linkedin.com/in/anuraj-deep-2407/' },
+        { name: 'Youtube', icon: <Youtube size={20} />, url: 'https://www.youtube.com/@anurajdeep' },
+        { name: 'Instagram', icon: <Instagram size={20} />, url: 'https://www.instagram.com/anu_raj07' },
+        { name: 'Medium', icon: <BookText size={20} />, url: 'https://medium.com/@anuraj_deep' }
+    ];
+
     return (
-        <section>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', marginBottom: '8rem' }}>
-                <div>
-                    <RevealText>
-                        <h2 className="text-h2">Location</h2>
-                    </RevealText>
-                    <RevealText delay={0.1}>
-                        <p className="text-body">Bengaluru, Karnataka<br />India</p>
-                    </RevealText>
-                </div>
-                <div>
-                    <RevealText delay={0.2}>
-                        <h2 className="text-h2">Contact details</h2>
-                    </RevealText>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                        <RevealText delay={0.3}>
-                            <a href="mailto:deep.anuraj10@gmail.com" style={{ textDecoration: 'underline', textUnderlineOffset: '4px', color: 'var(--text-main)', fontSize: '1.1rem' }}>deep.anuraj10@gmail.com</a>
-                        </RevealText>
-                        <RevealText delay={0.4}>
-                            <a href="tel:+91-7903811835" style={{ color: 'var(--text-secondary)' }}>+91-7903811835</a>
-                        </RevealText>
-                    </div>
-                </div>
-            </div>
+        <section id="contact" style={{
+            minHeight: '80vh',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+            paddingTop: '4rem',
+            paddingBottom: '2rem'
+        }}>
+            <RevealText>
+                <h1 className="text-h1" style={{ fontSize: '3.5rem', marginBottom: '2rem' }}>Keep In Touch.</h1>
+            </RevealText>
 
-            <div style={{ textAlign: 'center', marginBottom: '8rem', overflow: 'hidden' }}>
-                <motion.div
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                >
-                    <a href="https://drive.google.com/file/d/1RtaKiWLIbBxZxiSVw56YSV8s3pyi0Htk/view?usp=drive_link" className="btn-primary" style={{ fontSize: '1.2rem', padding: '24px 48px', borderRadius: '12px' }}>
-                        Download PDF Resume
-                    </a>
-                </motion.div>
-            </div>
+            <RevealText delay={0.1}>
+                <p className="text-body" style={{ marginBottom: '2rem', fontSize: '1.2rem' }}>
+                    Contact Me <span style={{ color: 'var(--accent-color)' }}>Feel free to reach out!</span>.
+                    <br />
+                    I'd love to hear from you about your project.
+                </p>
+            </RevealText>
 
-            <footer
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1rem',
-                    borderTop: '1px solid var(--border-color)',
-                    paddingTop: '3rem',
-                    paddingBottom: '3rem',
-                    fontSize: '0.9rem',
-                    color: 'var(--text-secondary)'
+            {/* Distinct Phone Design */}
+            <RevealText delay={0.15}>
+                <a href="tel:+917903811835" style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.8rem',
+                    fontSize: '1.25rem',
+                    fontWeight: 600,
+                    color: 'var(--text-main)',
+                    marginBottom: '3rem',
+                    padding: '12px 28px',
+                    borderRadius: '50px',
+                    border: '2px solid var(--accent-color)',
+                    textDecoration: 'none',
+                    transition: 'transform 0.2s'
                 }}
-            >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-                    <RevealText>
-                        <div>© 2026</div>
+                    className="phone-btn"
+                >
+                    <Phone size={24} style={{ fill: 'var(--accent-color)', stroke: 'none' }} />
+                    <span>+91 79038 11835</span>
+                </a>
+            </RevealText>
+
+            <div style={{
+                display: 'flex',
+                gap: '1.5rem',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                marginBottom: '8rem'
+            }}>
+                {socialLinks.map((social, index) => (
+                    <RevealText key={index} delay={0.2 + (index * 0.1)}>
+                        <a
+                            href={social.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.8rem',
+                                backgroundColor: 'var(--card-bg)', // Adapts to theme
+                                color: 'var(--text-main)',
+                                padding: '16px 32px',
+                                borderRadius: '8px',
+                                textDecoration: 'none',
+                                fontWeight: 500,
+                                border: '1px solid var(--border-color)',
+                                transition: 'all 0.2s ease'
+                            }}
+                            className="social-btn" // Can add hover effect in global css if needed
+                        >
+                            {social.icon} {social.name}
+                        </a>
                     </RevealText>
-                    <div style={{ display: 'flex', gap: '2rem' }}>
-                        {[
-                            { name: 'Github', url: 'https://github.com/anuraj07' },
-                            { name: 'LinkedIn', url: 'https://www.linkedin.com/in/anuraj-deep-2407/' },
-                            { name: 'Instagram', url: 'https://www.instagram.com/anu_raj07' }
-                        ].map((social, i) => (
-                            <RevealText key={social.name} delay={0.1 * i} style={{ display: 'inline-block' }}>
-                                <a
-                                    href={social.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    style={{ transition: 'color 0.2s', color: 'var(--text-secondary)' }}
-                                >
-                                    {social.name}
-                                </a>
-                            </RevealText>
-                        ))}
-                    </div>
-                </div>
+                ))}
+            </div>
+
+            <footer style={{ marginTop: 'auto', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                <RevealText delay={0.5}>
+                    <p style={{ marginBottom: '0.5rem' }}>Designed and Developed by Anuraj Deep.</p>
+                    <p>Built with <span style={{ color: 'var(--accent-color)' }}>React & Vite</span></p>
+                </RevealText>
             </footer>
         </section>
     );

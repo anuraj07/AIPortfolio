@@ -1,66 +1,89 @@
-// import React from 'react';
 import { motion } from 'framer-motion';
 import { RevealText } from './RevealText';
+import { TypewriterText } from './TypewriterText';
 import portfolioHighlight from '../assets/portfolio_highlight.jpg';
+import './Hero.css';
 
 const imageReveal = {
     hidden: { scale: 0.95, opacity: 0 },
     visible: { scale: 1, opacity: 1, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as any, delay: 0.2 } }
 };
 
+const stats = [
+    { value: "4+", label: "Years of\nExperience" },
+    { value: "10+", label: "Projects\nCompleted" },
+    { value: "96%", label: "Positive\nFeedback" }, // Placeholder based on ref
+    { value: "8+", label: "Technologies\nMastered" }
+];
+
 export const Hero = () => {
     return (
-        <section style={{ paddingTop: '2rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4rem' }}>
-                <RevealText>
-                    <div style={{ fontWeight: 600, fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                        <div style={{ width: '32px', height: '32px', background: '#ccc', borderRadius: '50%', overflow: 'hidden' }}>
-                            <img src="https://placehold.co/100x100/333/fff?text=AD" alt="Anuraj Deep" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                        </div>
-                        <span>Anuraj Deep</span>
+        <section className="hero-section">
+            {/* Main Content Grid */}
+            <div className="hero-grid">
+
+                {/* Left Column: Text & CTA */}
+                <div>
+                    <h1 className="text-h1" style={{ fontSize: '3rem', lineHeight: '1.1', marginBottom: '1.5rem', minHeight: '160px' }}>
+                        <TypewriterText text="Hey, I'm" delay={0.2} /> <span style={{ color: 'var(--text-secondary)' }}><TypewriterText text="Anuraj Deep" delay={0.5} /></span>
+                        <br />
+                        <TypewriterText text="a software engineer from" delay={1} /> <span style={{ fontStyle: 'italic' }}><TypewriterText text="Bengaluru" delay={1.75} /></span>
+                    </h1>
+
+                    <RevealText delay={0.2}>
+                        <p className="text-body" style={{ maxWidth: '90%', marginBottom: '2.5rem' }}>
+                            I create high-quality applications with a focus on Kotlin, Android SDK, and scalable architectures.
+                            Committed to exceeding expectations and providing seamless user experiences.
+                        </p>
+                    </RevealText>
+
+                    <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                        <RevealText delay={0.2}>
+                            <a href="#contact" className="btn-primary" style={{ padding: '16px 32px' }}>
+                                Hire Me
+                            </a>
+                        </RevealText>
+                        <RevealText delay={0.6}>
+                            <a href="https://drive.google.com/uc?export=download&id=1RtaKiWLIbBxZxiSVw56YSV8s3pyi0Htk" style={{ fontSize: '1rem', color: 'var(--text-main)', fontWeight: 500, textDecoration: 'underline', textUnderlineOffset: '4px' }}>
+                                Download Resume
+                            </a>
+                        </RevealText>
                     </div>
-                </RevealText>
+                </div>
+
+                {/* Right Column: Image */}
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={imageReveal}
+                    className="hero-image-container"
+                >
+                    <motion.img
+                        // whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.6 }}
+                        src={portfolioHighlight}
+                        alt="Anuraj Deep"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                </motion.div>
             </div>
 
-            <div style={{ marginBottom: '3rem' }}>
-                <RevealText delay={0.2}>
-                    <h1 className="text-h1" style={{ margin: 0 }}>Software Engineer - 2,</h1>
-                </RevealText>
-                <RevealText delay={0.3}>
-                    <h1 className="text-h1" style={{ margin: 0 }}>Android Developer</h1>
-                </RevealText>
+            {/* Bottom Row: Stats */}
+            <div className="hero-stats">
+                {stats.map((stat, index) => (
+                    <RevealText key={index} delay={0.5 + (index * 0.1)}>
+                        <div style={{ textAlign: 'center' }}>
+                            <div style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+                                {stat.value}
+                            </div>
+                            <div className="text-small" style={{ fontSize: '0.9rem', whiteSpace: 'pre-line', lineHeight: '1.4' }}>
+                                {stat.label}
+                            </div>
+                        </div>
+                    </RevealText>
+                ))}
             </div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
-                <RevealText delay={0.4}>
-                    <h2 className="text-h2" style={{ marginBottom: '1rem' }}>About</h2>
-                    <p className="text-body" style={{ maxWidth: '480px' }}>
-                        Hello! I'm an Android developer who enjoys creating high-quality applications. I contribute considerable knowledge in Kotlin, Android SDK, and prominent architectural patterns such as MVP, MVVM, and MVI to any project I work on. My knowledge includes coroutines, dependency injection, and Jetpack libraries like Navigation and Compose, which allow me to create highly efficient and engaging user experiences. I also have a strong understanding of SQL and Room, allowing me to manage data easily. I take satisfaction in producing high-quality solutions by developing clean, maintainable code. I'm committed to exceeding expectations and providing a seamless user experience, whether developing a new app or improving an existing one. Let's work together to make your app ideas a reality.
-                    </p>
-                </RevealText>
-            </div>
-
-            <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={imageReveal}
-                style={{
-                    width: '100%',
-                    height: '600px',
-                    backgroundColor: '#dce0dd',
-                    borderRadius: '12px',
-                    overflow: 'hidden',
-                }}
-            >
-                <motion.img
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.6 }}
-                    src={portfolioHighlight}
-                    alt="Portfolio Highlight"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-            </motion.div>
         </section>
     );
 };

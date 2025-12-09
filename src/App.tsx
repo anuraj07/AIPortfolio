@@ -1,11 +1,13 @@
 import { useEffect } from 'react'
 import { Hero } from './components/Hero'
 import { Experience } from './components/Experience'
-// import { Projects } from './components/Projects'
+import { Projects } from './components/Projects'
 import { Education } from './components/Education'
 // import { Skills } from './components/Skills'
 // import { Awards } from './components/Awards'
 import { Contact } from './components/Contact'
+import { ThemeToggle } from './components/ThemeToggle'
+import { Services } from './components/Services'
 import Lenis from 'lenis'
 
 function App() {
@@ -33,9 +35,11 @@ function App() {
 
     return (
         <div className="container">
+            <ThemeToggle />
             <Hero />
+            <Services />
+            <Projects />
             <Experience />
-            {/* <Projects /> */}
             <Education />
             {/* <Skills /> */}
             {/* <Awards /> */}
