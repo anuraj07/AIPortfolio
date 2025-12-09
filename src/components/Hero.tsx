@@ -13,7 +13,7 @@ const stats = [
     { value: "4+", label: "Years of\nExperience" },
     { value: "10+", label: "Projects\nCompleted" },
     { value: "96%", label: "Positive\nFeedback" }, // Placeholder based on ref
-    { value: "8+", label: "Technologies\nMastered" }
+    { value: "4+", label: "Technologies\nMastered" }
 ];
 
 export const Hero = () => {

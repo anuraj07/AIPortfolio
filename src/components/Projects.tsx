@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { RevealText } from './RevealText';
@@ -6,28 +6,57 @@ import { RevealText } from './RevealText';
 export const Projects = () => {
     const projects = [
         {
-            title: "BioResistanceAI",
-            description: "Faced with the rise of bacterial resistance, predicting the effectiveness of antibiotics is becoming crucial. Using genomic data, it is possible to anticipate the resistance of a bacterial strain, thus avoiding the need for culturing.",
-            link: "#"
+            title: "Send WhatsApp Message",
+            description: "Sometime it is very annoying to save a mobile number of a person to start a WhatsApp conversation with them. So, I made this Android app where users can type or paste the receiver’s number and press send and they are ready to start their conversation without saving the number.",
+            link: "https://github.com/anuraj07/send_whatsapp_msg"
         },
         {
-            title: "ExtremePrecipit",
-            description: "Faced with the increased risks associated with climate change, accurately predicting extreme rainfall is becoming essential. This project utilizes a high-resolution climate model.",
-            link: "#"
+            title: "Encrypted Messenger",
+            description: "One can encrypt and decrypt their messages using different algorithms such as AES, DES, and RSA, and hash their message using MD5. The app has also integrated with Google API voice-to-text.",
+            link: "https://github.com/anuraj07/EncryptedMessenger"
         },
         {
-            title: "Niveo",
-            description: "Faced with the increasing variability of snow conditions and the challenges of safety in the mountains, having reliable and real-time visualization of snow data is becoming essential.",
-            link: "#"
+            title: "JsonToonConverter",
+            description: "JsonToonConverter is an intelligent, rules-driven visualization engine designed to transform structured JSON data into expressive toon-style illustrations, animated scenes, or stylized graphical assets. Instead of manually designing characters, objects, or environments, developers feed the system descriptive JSON input, and the converter automatically generates a vibrant, cartoon-like output that reflects the structure and semantics of the data.",
+            link: "https://github.com/anuraj07/JsonToonConverter"
         },
         {
-            title: "EcoTrack",
-            description: "A comprehensive solution for tracking and reducing carbon footprints for small to medium enterprises. Features real-time dashboard analytics and actionable insights.",
-            link: "#"
+            title: "CoinFlip",
+            description: "CoinFlip is a simple Kotlin-based utility that simulates a coin toss, generating a random Heads or Tails outcome. Ideal for basic randomness tests, decision-making, or learning Kotlin project structure.",
+            link: "https://github.com/anuraj07/CoinFlip"
         }
     ];
 
     const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleScroll = () => {
+        if (scrollContainerRef.current) {
+            const container = scrollContainerRef.current;
+            const scrollPosition = container.scrollLeft;
+            const cardWidth = container.firstElementChild ? (container.firstElementChild as HTMLElement).offsetWidth : 0;
+            const gap = 32; // 2rem gap
+            const totalItemWidth = cardWidth + gap;
+
+            // Calculate active index based on scroll center
+            const index = Math.round(scrollPosition / totalItemWidth);
+            setActiveIndex(Math.min(Math.max(index, 0), projects.length - 1));
+        }
+    };
+
+    const scrollToProject = (index: number) => {
+        if (scrollContainerRef.current) {
+            const container = scrollContainerRef.current;
+            const cardWidth = container.firstElementChild ? (container.firstElementChild as HTMLElement).offsetWidth : 0;
+            const gap = 32;
+            const targetPosition = index * (cardWidth + gap);
+
+            container.scrollTo({
+                left: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
 
     return (
         <section id="projects" style={{
@@ -48,6 +77,7 @@ export const Projects = () => {
             {/* Carousel Container */}
             <div
                 ref={scrollContainerRef}
+                onScroll={handleScroll}
                 style={{
                     display: 'flex',
                     gap: '2rem',
@@ -64,10 +94,10 @@ export const Projects = () => {
             >
                 {/* Hide scrollbar for Chrome/Safari */}
                 <style>{`
-                    .projects-carousel::-webkit-scrollbar {
-                        display: none;
-                    }
-                `}</style>
+    .projects - carousel:: -webkit - scrollbar {
+    display: none;
+}
+`}</style>
 
                 {projects.map((project, index) => (
                     <motion.div
@@ -81,7 +111,7 @@ export const Projects = () => {
                             minWidth: '350px',
                             maxWidth: '400px',
                             flex: '0 0 auto',
-                            scrollSnapAlign: 'center',
+                            scrollSnapAlign: 'center', // Center snap
                             backgroundColor: 'var(--card-bg)',
                             borderRadius: '24px',
                             padding: '2.5rem',
@@ -121,15 +151,27 @@ export const Projects = () => {
                 ))}
             </div>
 
-            {/* Pagination Dots (Visual only for now) */}
+            {/* Pagination Dots */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '0.8rem', marginTop: '1rem' }}>
-                <div style={{ width: '24px', height: '8px', borderRadius: '4px', backgroundColor: 'var(--text-main)', opacity: 0.8 }}></div>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--text-secondary)', opacity: 0.5 }}></div>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--text-secondary)', opacity: 0.5 }}></div>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--text-secondary)', opacity: 0.5 }}></div>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--text-secondary)', opacity: 0.5 }}></div>
+                {projects.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => scrollToProject(index)}
+                        style={{
+                            width: activeIndex === index ? '24px' : '8px',
+                            height: '8px',
+                            borderRadius: activeIndex === index ? '4px' : '50%',
+                            backgroundColor: activeIndex === index ? 'var(--text-main)' : 'var(--text-secondary)',
+                            opacity: activeIndex === index ? 0.8 : 0.5,
+                            transition: 'all 0.3s ease',
+                            border: 'none',
+                            padding: 0,
+                            cursor: 'pointer'
+                        }}
+                        aria-label={`Go to project ${index + 1} `}
+                    />
+                ))}
             </div>
-
         </section>
     );
 };

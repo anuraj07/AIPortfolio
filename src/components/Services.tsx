@@ -8,20 +8,20 @@ export const Services = () => {
             icon: <Laptop size={32} style={{ color: 'var(--accent-color)' }} />, // Purple-ish icon
             title: "What I can do",
             description: "I can help develop solutions that will help you grow your business:",
-            list: ["UI/UX Design", "Fullstack Web Development", "Mobile App Development", "Database Design", "API Integration"]
+            list: ["UI/UX Design", "Mobile App Development", "IOT device integration", "Database Design", "API Integration"]
         },
         {
             icon: <Layers size={32} style={{ color: 'var(--accent-color)' }} />,
             title: "Tools I Use",
             description: "I use the latest tools and technologies to build functional and scalable products:",
-            list: ["Frontend:\nTailwind CSS, React, TypeScript", "Backend:\nNode.js, Fastify, MongoDB, PostgreSQL", "Design:\nFigma, Framer, Photoshop"]
+            list: ["Mobile App Development:\nKotlin, Java, Flutter", "Backend:\nSpring Boot, MongoDB, PostgreSQL", "Design:\nFigma, Zeplin"]
         },
-        {
-            icon: <Palette size={32} style={{ color: 'var(--accent-color)' }} />,
-            title: "UI/UX Design",
-            description: "I am a designer first, developer second. I can help design clean and modern interfaces:",
-            list: ["User-Centered Design", "Modern & Clean UI", "Responsive Layouts", "Wireframes & Prototypes"]
-        }
+        // {
+        //     icon: <Palette size={32} style={{ color: 'var(--accent-color)' }} />,
+        //     title: "UI/UX Design",
+        //     description: "I am a designer first, developer second. I can help design clean and modern interfaces:",
+        //     list: ["User-Centered Design", "Modern & Clean UI", "Responsive Layouts", "Wireframes & Prototypes"]
+        // }
     ];
 
     return (
