@@ -1,6 +1,6 @@
 // import { motion } from 'framer-motion';
 import { RevealText } from './RevealText';
-import { Github, Linkedin, Mail, Twitter, Youtube, Instagram, BookText, Phone } from 'lucide-react';
+import { Github, Linkedin, Mail, Youtube, Instagram, BookText, Phone } from 'lucide-react';
 
 export const Contact = () => {
     const socialLinks = [
