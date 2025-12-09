@@ -1,5 +1,5 @@
 // import { motion } from 'framer-motion';
-import { Laptop, Layers, Palette, FolderGit2 } from 'lucide-react'; // Added FolderGit2 for button icon if needed
+import { Laptop, Layers, FolderGit2 } from 'lucide-react'; // Added FolderGit2 for button icon if needed
 import { RevealText } from './RevealText';
 
 export const Services = () => {
