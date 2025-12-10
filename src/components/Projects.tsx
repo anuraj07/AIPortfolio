@@ -17,7 +17,7 @@ export const Projects = () => {
         },
         {
             title: "JsonToonConverter",
-            description: "JsonToonConverter is an intelligent, rules-driven visualization engine designed to transform structured JSON data into expressive toon-style illustrations, animated scenes, or stylized graphical assets. Instead of manually designing characters, objects, or environments, developers feed the system descriptive JSON input, and the converter automatically generates a vibrant, cartoon-like output that reflects the structure and semantics of the data.",
+            description: "JsonToonConverter transforms structured JSON into vibrant toon-style illustrations or animated scenes, automatically generating characters, objects, and environments based on the data’s structure and meaning.",
             link: "https://github.com/anuraj07/JsonToonConverter"
         },
         {

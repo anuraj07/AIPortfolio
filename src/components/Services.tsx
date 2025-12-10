@@ -14,7 +14,7 @@ export const Services = () => {
             icon: <Layers size={32} style={{ color: 'var(--accent-color)' }} />,
             title: "Tools I Use",
             description: "I use the latest tools and technologies to build functional and scalable products:",
-            list: ["Mobile App Development:\nKotlin, Java, Flutter", "Backend:\nSpring Boot, MongoDB, PostgreSQL", "Design:\nFigma, Zeplin"]
+            list: ["Mobile App Development:\nJetpack Compose, Flutter, Kotlin, Java, Dart", "Backend:\nSpring Boot, MongoDB, PostgreSQL", "Design:\nFigma, Zeplin"]
         },
         // {
         //     icon: <Palette size={32} style={{ color: 'var(--accent-color)' }} />,
